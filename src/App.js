@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AW } from "./AllStyle";
+import Add from "./page/Add";
+import Mydic from "./page/Mydic";
+import Test from "./page/Test";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AW>
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Add />
+          </Route>
+          <Route path="/mydic">
+            <Mydic />
+          </Route>
+          <Route path="/test">
+            <Test />
+          </Route>
+        </Switch>
+      </Router>
+    </AW>
   );
 }
 
