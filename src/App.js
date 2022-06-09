@@ -8,8 +8,8 @@ function App() {
     <AW>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Add />} />
-          <Route path="/mydic" element={<Mydic />} />
+          <Route path="/" element={<Mydic />} />
+          <Route path="/add" element={<Add />} />
         </Routes>
       </BrowserRouter>
     </AW>

@@ -71,7 +71,7 @@ function Add() {
             // onChange={onChangeInput}
           />
         </AddMidBox>
-        <Link to="/mydic">
+        <Link to="/">
           <SqBtn onClick={addList}>추가하기</SqBtn>
         </Link>
       </AddSmallWrap>

@@ -74,7 +74,7 @@ function Mydic() {
         <AddbtnBox>
           <Addbtn
             onClick={() => {
-              nav("/");
+              nav("/add");
             }}
             size="80"
           />
