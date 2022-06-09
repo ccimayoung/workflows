@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GlobalStyles from "../css/GlobalStyle";
-import { createWord } from "../redux/modules/save";
+import { createWord, removeWord } from "../redux/modules/save";
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,18 +13,18 @@ import {
   Title,
   AW,
   AddbtnBox,
+  TrashbtnBox,
 } from "../AllStyle.js";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoIosAddCircle } from "react-icons/io";
+import { BsTrash } from "react-icons/bs";
 import axios from "axios";
 
 function Mydic() {
   const list = useSelector((state) => state.save.list);
-
   const dispatch = useDispatch();
-
+  const nav = useNavigate();
   const addList = useCallback((bb) => dispatch(createWord(bb)), [dispatch]);
-
   const callList = async () => {
     const newlist = await axios.get(
       "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
@@ -53,6 +53,14 @@ function Mydic() {
           {list.map((list, index) => {
             return (
               <Dic key={index}>
+                <TrashbtnBox>
+                  <BsTrash
+                    onClick={() => {
+                      dispatch(removeWord(list.id));
+                    }}
+                    size="25"
+                  ></BsTrash>
+                </TrashbtnBox>
                 <SmallTitle>단어</SmallTitle>
                 <Text>{list.new_word}</Text>
                 <SmallTitle>설명</SmallTitle>
@@ -64,9 +72,12 @@ function Mydic() {
           })}
         </DicSmallWrap>
         <AddbtnBox>
-          <Link to="/">
-            <Addbtn size="80" />
-          </Link>
+          <Addbtn
+            onClick={() => {
+              nav("/");
+            }}
+            size="80"
+          />
         </AddbtnBox>
       </BigWrap>
     </AW>
@@ -76,4 +87,6 @@ export default Mydic;
 
 const Addbtn = styled(IoIosAddCircle)`
   color: darkgreen;
+  border-radius: 50%;
+  cursor: pointer;
 `;

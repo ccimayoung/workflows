@@ -68,9 +68,8 @@ export const SqBtn = styled.button`
 `;
 
 export const AddbtnBox = styled.div`
-  background-color: violet;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   margin: 20px 0 20px 500px;
   border-radius: 50%;
   display: flex;
@@ -93,7 +92,9 @@ export const Dic = styled.div`
   box-sizing: border-box;
   width: 30%;
   gap: 200px;
-  /* margin-top: 20px; */
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 10px;
   background-color: white;
   text-align: left;
@@ -101,9 +102,16 @@ export const Dic = styled.div`
   border-radius: 5px;
 `;
 
+export const TrashbtnBox = styled.div`
+  margin-left: 120px;
+  width: 30px;
+  height: 30px;
+`;
+
 export const Text = styled.p`
   font-size: 15px;
   margin-left: 10px;
+  white-space: pre-line;
 `;
 
 export const Example = styled.p`

@@ -29,6 +29,12 @@ export default function reducer(state = initialState, action = {}) {
       console.log(new_list);
       return { list: new_list };
     }
+    case "word/REMOVE": {
+      const new_list = state.list.filter((v) => {
+        return v.id !== parseInt(action.word);
+      });
+      return { list: new_list };
+    }
     default:
       return state;
   }
