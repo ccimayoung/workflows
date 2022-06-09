@@ -26,7 +26,7 @@ function Add() {
 
   const addList = () => {
     const cc = {
-      id: list[list.length - 1].id + 1,
+      id: list.length >= 1 ? list[list.length - 1].id + 1 : 0,
       new_word: new_word.current.value,
       new_text: new_text.current.value,
       new_example: new_example.current.value,

@@ -26,7 +26,7 @@ function Mydic() {
 
   const callList = async () => {
     const newlist = await axios.get(
-      "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/add/db.json"
+      "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
     );
 
     return newlist.data;
@@ -63,7 +63,7 @@ function Mydic() {
           })}
         </DicSmallWrap>
 
-        <Link to="/add">
+        <Link to="/">
           <Addbtn size="80" />
         </Link>
       </BigWrap>
