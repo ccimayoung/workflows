@@ -35,6 +35,16 @@ export default function reducer(state = initialState, action = {}) {
       });
       return { list: new_list };
     }
+    case "word/UPDATE": {
+      const new_list = state.list.map((v) => {
+        if (v.id === parseInt(action.word.id)) {
+          return action.word;
+        } else {
+          return v;
+        }
+      });
+      return { list: new_list };
+    }
     default:
       return state;
   }

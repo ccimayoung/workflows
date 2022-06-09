@@ -102,10 +102,20 @@ export const Dic = styled.div`
   border-radius: 5px;
 `;
 
+export const BtnWrap = styled.div`
+  display: flex;
+`;
 export const TrashbtnBox = styled.div`
-  margin-left: 120px;
+  margin-left: 90px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+`;
+export const EditbtnBox = styled.div`
+  margin-left: 2px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 `;
 
 export const Text = styled.p`

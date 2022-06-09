@@ -14,10 +14,13 @@ import {
   AW,
   AddbtnBox,
   TrashbtnBox,
+  EditbtnBox,
+  BtnWrap,
 } from "../AllStyle.js";
 import { useNavigate } from "react-router-dom";
 import { IoIosAddCircle } from "react-icons/io";
 import { BsTrash } from "react-icons/bs";
+import { AiOutlineEdit } from "react-icons/ai";
 import axios from "axios";
 
 function Mydic() {
@@ -52,14 +55,23 @@ function Mydic() {
           {list.map((list, index) => {
             return (
               <Dic key={index}>
-                <TrashbtnBox>
-                  <BsTrash
+                <BtnWrap>
+                  <TrashbtnBox>
+                    <BsTrash
+                      onClick={() => {
+                        dispatch(removeWord(list.id));
+                      }}
+                      size="25"
+                    ></BsTrash>
+                  </TrashbtnBox>
+                  <EditbtnBox
                     onClick={() => {
-                      dispatch(removeWord(list.id));
+                      nav("/edit/" + parseInt(list.id));
                     }}
-                    size="25"
-                  ></BsTrash>
-                </TrashbtnBox>
+                  >
+                    <AiOutlineEdit size="25"></AiOutlineEdit>
+                  </EditbtnBox>
+                </BtnWrap>
                 <SmallTitle>단어</SmallTitle>
                 <Text>{list.new_word}</Text>
                 <SmallTitle>설명</SmallTitle>
