@@ -12,6 +12,7 @@ import {
   Text,
   Title,
   AW,
+  AddbtnBox,
 } from "../AllStyle.js";
 import { Link } from "react-router-dom";
 import { IoIosAddCircle } from "react-icons/io";
@@ -62,10 +63,11 @@ function Mydic() {
             );
           })}
         </DicSmallWrap>
-
-        <Link to="/">
-          <Addbtn size="80" />
-        </Link>
+        <AddbtnBox>
+          <Link to="/">
+            <Addbtn size="80" />
+          </Link>
+        </AddbtnBox>
       </BigWrap>
     </AW>
   );
@@ -74,7 +76,4 @@ export default Mydic;
 
 const Addbtn = styled(IoIosAddCircle)`
   color: darkgreen;
-  font-size: 80px;
-  position: relative;
-  margin: 20px 0 20px 500px;
 `;

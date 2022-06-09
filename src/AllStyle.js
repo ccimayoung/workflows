@@ -67,6 +67,17 @@ export const SqBtn = styled.button`
   cursor: pointer;
 `;
 
+export const AddbtnBox = styled.div`
+  background-color: violet;
+  width: 60px;
+  height: 60px;
+  margin: 20px 0 20px 500px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const DicSmallWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
