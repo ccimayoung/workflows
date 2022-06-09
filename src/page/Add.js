@@ -21,8 +21,6 @@ function Add() {
   const dispatch = useDispatch();
 
   const list = useSelector((state) => state.save.list);
-  console.log(list);
-  console.log(list);
 
   const addsList = useCallback((bb) => dispatch(createWord(bb)), [dispatch]);
 
