@@ -19,7 +19,6 @@ import axios from "axios";
 
 function Mydic() {
   const list = useSelector((state) => state.save.list);
-  console.log(list);
 
   const dispatch = useDispatch();
 
