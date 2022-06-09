@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GlobalStyles from "../css/GlobalStyle";
 import { createWord, removeWord } from "../redux/modules/save";
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   BigWrap,
@@ -27,11 +27,11 @@ function Mydic() {
 
   const callList = async () => {
     const newlist = await axios.get(
-      // "http://localhost:3000//db.json"
-      "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
+      "http://localhost:3000//db.json"
+      // "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
     );
     newlist.data.map((v) => {
-      dispatch(createWord(v));
+      return dispatch(createWord(v));
     });
   };
 
@@ -39,6 +39,7 @@ function Mydic() {
     if (list.length === 0) {
       callList();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
