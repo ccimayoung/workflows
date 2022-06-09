@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import GlobalStyles from "../css/GlobalStyle";
 import { createWord } from "../redux/modules/save";
@@ -12,7 +11,6 @@ import {
   SmallTitle,
   Text,
   Title,
-  SqBtn,
   AW,
 } from "../AllStyle.js";
 import { Link } from "react-router-dom";
@@ -29,17 +27,19 @@ function Mydic() {
 
   const callList = async () => {
     const newlist = await axios.get("http://localhost:3000/db.json");
-    newlist.data.map((value) => {
-      addList(value);
-    });
-    // return newlist;
+
+    return newlist.data;
   };
 
   useEffect(() => {
     if (list.length === 0) {
-      callList();
+      callList().then((dd) => {
+        dd.map((value) => {
+          return addList(value);
+        });
+      });
     }
-  }, []);
+  }, [addList, list]);
 
   return (
     <AW>

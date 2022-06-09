@@ -5,14 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   AddMidBox,
   AddSmallWrap,
-  AW,
   BigWrap,
-  Dic,
-  Example,
   InputBox,
   SmallTitle,
   SqBtn,
-  Text,
   Title,
 } from "../AllStyle.js";
 import { Link } from "react-router-dom";
@@ -25,6 +21,7 @@ function Add() {
   const dispatch = useDispatch();
 
   const list = useSelector((state) => state.save.list);
+  console.log(list);
   console.log(list);
 
   const addsList = useCallback((bb) => dispatch(createWord(bb)), [dispatch]);
