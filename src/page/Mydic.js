@@ -24,24 +24,22 @@ function Mydic() {
   const list = useSelector((state) => state.save.list);
   const dispatch = useDispatch();
   const nav = useNavigate();
-  const addList = useCallback((bb) => dispatch(createWord(bb)), [dispatch]);
+
   const callList = async () => {
     const newlist = await axios.get(
+      // "http://localhost:3000//db.json"
       "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
     );
-
-    return newlist.data;
+    newlist.data.map((v) => {
+      dispatch(createWord(v));
+    });
   };
 
   useEffect(() => {
     if (list.length === 0) {
-      callList().then((dd) => {
-        dd.map((value) => {
-          return addList(value);
-        });
-      });
+      callList();
     }
-  }, [addList, list]);
+  }, []);
 
   return (
     <AW>

@@ -23,7 +23,7 @@ export const BigWrap = styled.div`
 export const Title = styled.h1`
   margin-top: 0;
   font-size: 50px;
-  text-align: left;
+  text-align: center;
   width: 100%;
   color: white;
   background-color: #006400;
