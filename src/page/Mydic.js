@@ -26,7 +26,9 @@ function Mydic() {
   const addList = useCallback((bb) => dispatch(createWord(bb)), [dispatch]);
 
   const callList = async () => {
-    const newlist = await axios.get("http://localhost:3000/db.json");
+    const newlist = await axios.get(
+      "http://ccimayoung.shop.s3-website.ap-northeast-2.amazonaws.com/db.json"
+    );
 
     return newlist.data;
   };
